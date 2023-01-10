@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     # third apps
     'rest_framework',
     "corsheaders",
+    'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
     'dj_rest_auth',
     'dj_rest_auth.registration',
@@ -153,3 +155,22 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     'http://127.0.0.1:5173'
 ]
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_UNIQUE_EMAIL = True
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+REST_USE_JWT = True
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
