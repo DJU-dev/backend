@@ -4,6 +4,7 @@ from django.urls import include, path
 
 router = DefaultRouter()
 router.register('readyonly/post', views.ReadOnlyPostViewSet)
+router.register('post', views.PostViewSet)
 
 urlpatterns = [
     path('', include(router.urls))
