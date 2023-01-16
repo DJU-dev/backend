@@ -14,7 +14,7 @@ git clone https://github.com/DJU-dev/backend.git
 2. Set up a Environment
 * Create venv
 ```
-cd teenlief-backend
+cd backend
 python -m venv venv
 ```
 * Activate venv
